@@ -1,0 +1,5 @@
+vs_project/.vs
+vs_project/vs_project*
+vs_project/Release/*.*
+vs_project/Debug/*.*
+
