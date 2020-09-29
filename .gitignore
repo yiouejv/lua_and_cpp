@@ -33,3 +33,5 @@ vs_project/Debug/*.*
 */*/ipch/*/*
 */*/ipch/*/*.*
 */*/ipch/*/*/*.*
+
+test/
