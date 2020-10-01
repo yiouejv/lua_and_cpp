@@ -50,4 +50,5 @@ int main()
 
 	lua_settop(L, 1);
 	printStack("settop 1");
+	return 0;
 }

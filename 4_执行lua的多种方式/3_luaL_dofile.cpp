@@ -48,4 +48,5 @@ int main()
 		lua_pop(lua, 1);
 		printStack("error");
 	}
+	return 0;
 }

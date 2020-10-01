@@ -38,22 +38,18 @@ int main()
 	initLua();
 	printStack("initLua");
 
-    // 正常状态不会改变栈
-	int ret = luaL_dostring(lua, "print('hello')");
-	cout << "ret:" << ret << endl;
-	printStack("no error");
+	lua_pushstring(lua, "123");
+	cout << "123 lua_tointegerx: " << lua_tointegerx(lua, -1, NULL) << endl;
+	cout << "123 lua_tointeger: " << lua_tointeger(lua, -1) << endl;
+	cout << "123 lua_tonumberx: " << lua_tonumberx(lua, -1, NULL) << endl;
+	cout << "123 lua_tonumber: " << lua_tonumber(lua, -1) << endl;
 
-	// 异常情况
-	ret = luaL_dostring(lua, "prin('hello')");
-	cout << "ret:" << ret << endl;
-	printStack("error");
-	if (ret != 0)
-	{
-		const char * errorStr = lua_tostring(lua, -1);  // 获取栈顶的错误信息，最后一个压入栈的负索引为-1
-		lua_pop(lua, 1);  // 把错误信息从栈顶弹出，维持栈状态
-		cout << "errorStr: "  << errorStr << endl;
-		printStack("pop error end");
-	}
+	lua_pushstring(lua, "123.0");
+	cout << "123.0 lua_tointeger: " << lua_tointeger(lua, -1) << endl;
+	cout << "123.0 lua_tonumber: " << lua_tonumber(lua, -1) << endl;
 
+	lua_pushstring(lua, "123.1");
+	cout << "123.1 lua_tointeger: " << lua_tointeger(lua, -1) << endl;
+	cout << "123.1 lua_tonumber: " << lua_tonumber(lua, -1) << endl;
 	return 0;
 }

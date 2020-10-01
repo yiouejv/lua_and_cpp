@@ -56,4 +56,5 @@ int main()
 	type = lua_getglobal(lua, "aaaaaaa");  // 不存在的
 	cout << "type: " << type << endl;  // nil
 	printStack("lua_getglobal aaaaaaa");
+	return 0;
 }
